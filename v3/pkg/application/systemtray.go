@@ -93,7 +93,7 @@ func (s *SystemTray) Label() string {
 	return s.label
 }
 
-func (s *SystemTray) run() {
+func (s *SystemTray) Run() {
 	s.impl = newSystemTrayImpl(s)
 
 	if s.attachedWindow.Window != nil {
