@@ -4,16 +4,17 @@ import (
 	"embed"
 	"encoding/json"
 	"fmt"
-	"github.com/go-git/go-git/v5"
-	"github.com/go-git/go-git/v5/plumbing"
-	"github.com/pkg/errors"
-	"github.com/pterm/pterm"
-	"github.com/wailsapp/wails/v3/internal/debug"
 	"io/fs"
 	"os"
 	"os/exec"
 	"path/filepath"
 	"strings"
+
+	"github.com/go-git/go-git/v5"
+	"github.com/go-git/go-git/v5/plumbing"
+	"github.com/pkg/errors"
+	"github.com/pterm/pterm"
+	"github.com/wailsapp/wails/v3/internal/debug"
 
 	"github.com/wailsapp/wails/v3/internal/flags"
 
@@ -322,7 +323,6 @@ func Install(options *flags.Init) error {
 	if options.ProjectDir == "." || options.ProjectDir == "" {
 		templateData.ProjectDir = lo.Must(os.Getwd())
 	}
-	templateData.ProjectDir = filepath.Join(options.ProjectDir, options.ProjectName)
 
 	// If project directory already exists and is not empty, error
 	if _, err := os.Stat(templateData.ProjectDir); !os.IsNotExist(err) {
