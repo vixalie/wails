@@ -33,7 +33,6 @@ func (w Window) CallError(callID string, result string) {
 }
 
 func (w Window) CallResponse(callID string, result string) {
-	fmt.Println("CallResponse()", callID, result)
 	ids := strings.Split(callID, "|")
 	j, err := json.Marshal(callback{
 		ID:     ids[1],
@@ -120,7 +119,6 @@ func (w Window) Minimise() application.Window {
 func (w Window) Minimize() {}
 
 func (w Window) Name() string {
-	fmt.Println("server.Window.Name()")
 	return "external window"
 }
 
@@ -207,7 +205,6 @@ func (w Window) Show() application.Window {
 }
 
 func (w Window) Size() (width int, height int) {
-	fmt.Println("Server.Size(%v, %v)", width, height)
 	return 0, 0
 }
 
